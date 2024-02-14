@@ -22,3 +22,9 @@ def treinos(request):
     }
 
     return render(request, 'telaProf/treinos.html', treinos)
+
+def telaGerente(request):
+    return render(request, 'telaGerente/telaGerente.html')
+
+def telaRecepcionista(request):
+    return render(request, 'telaRecepcionista/telaRecepcionista.html')
