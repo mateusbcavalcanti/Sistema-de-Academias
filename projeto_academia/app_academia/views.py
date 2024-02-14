@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from .models import Treino
 
+def home(request):
+    return render(request, 'usuarios/home.html')
+
+def telaAluno(request):
+    return render(request, 'telaAluno/loginAluno.html')
+
 def telaProf(request):
     return render(request, 'telaProf/telaProf.html')
 
