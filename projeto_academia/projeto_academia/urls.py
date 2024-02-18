@@ -1,5 +1,6 @@
 from django.urls import path
 from app_academia import views
+from django.contrib import admin
 
 urlpatterns = [
     # Rota, view responsável, nome de referência
