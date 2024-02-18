@@ -2,10 +2,11 @@ from django.db import models
 from datetime import datetime
 
 class Aluno(models.Model):
-    id_aluno = models.AutoField(primary_key=True) # dps a gente muda pra cpf
+    CPF = models.BigeIntegerField(primary_key=True) # dps a gente muda pra cpf
     nome_aluno = models.CharField(max_length=255)
-    data_nasc = models.CharField(max_length=10)
-    telefone = models.CharField(max_length=14)
+    data_nasc = models.DateField()
+    telefone = models.IntegerField()
+    pacote = models.CharField(max_length = 14)
 
 class Treino(models.Model):
     id_treino = models.AutoField(primary_key=True)

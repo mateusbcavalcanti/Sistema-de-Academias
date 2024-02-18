@@ -65,7 +65,7 @@
     </div>
 
     <fieldset class="container">
-        <form>
+        <form action="{% url 'listaAlunos%' '}" method="post">
             <div class="campo">
                 <label>CPF:</label>
                 <input type="text" name="CPF" id="CPF" required>
@@ -98,8 +98,6 @@
             <div class="botaoEnvio">
                 <button type="submit" id="botao">Enviar</button>
             </div>
-
-
 
         </form>
     </fieldset>
