@@ -29,4 +29,4 @@ def telaGerente(request):
 def telaRecepcionista(request):
     return render(request, 'telaRecepcionista/telaRecepcionista.html')
 
-def listaAlunos(request):
+def listaAlunos(request):pass

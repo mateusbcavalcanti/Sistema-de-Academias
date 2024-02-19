@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class Aluno(models.Model):
-    CPF = models.BigeIntegerField(primary_key=True) # dps a gente muda pra cpf
+    CPF = models.BigIntegerField(primary_key=True) # dps a gente muda pra cpf
     nome_aluno = models.CharField(max_length=255)
     data_nasc = models.DateField()
     telefone = models.IntegerField()
