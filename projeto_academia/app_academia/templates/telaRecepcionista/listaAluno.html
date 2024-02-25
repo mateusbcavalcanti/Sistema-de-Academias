@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="lth">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Alunos</title>
+
+    <style>
+        .container {
+            display: flex;
+            margin-top: 50px;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+
+        }
+
+        .option {
+            background-color: rgb(168, 203, 242);
+            border-radius: 10px;
+        }
+    </style>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootsthap@5.0.2/dist/css/bootsthap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav style="background-color: lightsteelblue !important;" class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Alunos Matriculados</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>CPF</th>
+                <th>nome</th>
+                <th>data</th>
+                <th>telefone</th>
+                <th>pacote</th>
+            </tr>
+            {% for aluno in alunos%}
+            <tr>
+                <td>{{aluno.cpf}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.data_nasc}}</td>
+                <td>{{aluno.telefone}}</td>
+                <td>{{aluno.pacote}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>
