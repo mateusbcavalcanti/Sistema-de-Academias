@@ -65,7 +65,8 @@
     </div>
 
     <fieldset class="container">
-        <form action="{% url 'listaAlunos%' '}" method="post">
+        <form action="{% url 'listagem_alunos' %}" method="post">
+            {% csrf_token %}
             <div class="campo">
                 <label>CPF:</label>
                 <input type="text" name="CPF" id="CPF" required>
@@ -88,7 +89,7 @@
 
             <div class="campo">
                 <label>Pacote Contratado:</label>
-                <select id="pacote" required>
+                <select id="pacoteSelect" name="pacote" required>
                     <option>Básico</option>
                     <option>Intermediário</option>
                     <option>Premium</option>

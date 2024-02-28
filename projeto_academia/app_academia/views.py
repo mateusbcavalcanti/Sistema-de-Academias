@@ -1,14 +1,7 @@
 from django.shortcuts import render
 from .models import Treino
+from .models import Aluno
 
-def home(request):
-    return render(request, 'usuarios/home.html')
-
-def telaAluno(request):
-    return render(request, 'telaAluno/loginAluno.html')
-
-def telaProf(request):
-    return render(request, 'telaProf/telaProf.html')
 
 def treinos(request):
     if request.method == 'POST':
@@ -23,10 +16,48 @@ def treinos(request):
 
     return render(request, 'telaProf/treinos.html', treinos)
 
+
+def alunos(request):
+    # salvando as informações a tela no banco
+    novo_aluno = Aluno()
+    novo_aluno.cpf = request.POST.get('CPF')
+    novo_aluno.nome = request.POST.get('nome')
+    novo_aluno.data_nasc = request.POST.get('data')
+    novo_aluno.telefone = request.POST.get('telefone')
+    novo_aluno.pacote = request.POST.get('pacote')
+    novo_aluno.save()
+
+    # exibindo todos os usuários cadastrados em nova tela
+    alunos = {
+        'alunos': Aluno.objects.all()
+    }
+    # retornando os dados para a página de listagem dos alunos
+    return render(request, 'telaRecepcionista/listaAluno.html', alunos)
+
+
+def home(request):
+    return render(request, 'usuarios/home.html')
+
+
+def telaAluno(request):
+    return render(request, 'telaAluno/loginAluno.html')
+
+
+def telaProf(request):
+    return render(request, 'telaProf/telaProf.html')
+
+
 def telaGerente(request):
     return render(request, 'telaGerente/telaGerente.html')
+
 
 def telaRecepcionista(request):
     return render(request, 'telaRecepcionista/telaRecepcionista.html')
 
-def listaAlunos(request):pass
+
+def listaAluno(request):
+    return render(request, 'telaRecepcionista/listaAluno.html')
+
+
+def cadAluno(request):
+    return render(request, 'telaRecepcionista/cadAluno.html')
