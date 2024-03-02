@@ -23,3 +23,15 @@ class Exercicio(models.Model):
     nome_exercicio = models.CharField(max_length=255, primary_key=True)
     series = models.IntegerField()
     repeticoes = models.IntegerField()
+
+class Maquina(models.Model):
+    nome = models.TextField(max_length=255 ,primary_key=True)
+    grupo_muscular = models.TextField(max_length=255)    
+    marca = models.TextField(max_length=255)
+    data_compra = models.DateField()
+    ult_manutencao = models.DateField()
+    fornecedor = models.TextField(max_length=255)
+    prazo_manutencao = models.DateField()
+    prox_manutencao = models.DateField()
+    responsavel = models.TextField(max_length=225)
+    # unidade = models.ForeignKey()
