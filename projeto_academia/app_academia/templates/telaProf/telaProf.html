@@ -21,13 +21,56 @@
   </nav>
   <form action="{% url 'listagem_treinos' %}" method="post">
     {% csrf_token %}
-    <div style="text-align: center;" class="container">
-      <h1>Cadastrar treinos</h1>
-      Aluno <input name="aluno" class="form-control-sm" type="text">
-      Treino <input name="treino" class="form-control-sm" type="text">
-      <button class="form-control-sm">Adicionar</button>
+    <div class="container">
+      <h1 style="text-align: center;">Cadastrar treinos</h1>
+      <div class="mb-3">
+        <label for="aluno" class="form-label">Aluno</label>
+        <input id="aluno" name="aluno" class="form-control" type="text">
+      </div>
+      <div class="mb-3">
+        <label for="treino" class="form-label">Treino</label>
+        <input id="treino" name="treino" class="form-control" type="text">
+      </div>
+      <div class="exercicios mb-3">
+        <h2>Exercícios</h2>
+        <div class="exercicio mb-3">
+          <div class="row">
+            <div class="col">
+              <label for="nome_exercicio" class="form-label">Nome do Exercício</label>
+              <input name="nome_exercicio[]" class="form-control" type="text">
+            </div>
+            <div class="col">
+              <label for="series" class="form-label">Séries</label>
+              <input name="series[]" class="form-control" type="number">
+            </div>
+            <div class="col">
+              <label for="repeticoes" class="form-label">Repetições</label>
+              <input name="repeticoes[]" class="form-control" type="number">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success">Adicionar Treino</button>
     </div>
   </form>
+  <br>
+  <div>
+    <button id="add-exercicio" class="btn btn-primary mb-3" style="margin-left: 110px;">Adicionar Exercício</button>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#add-exercicio").click(function() {
+        $(".exercicios").append('<div class="exercicio mb-3"><div class="row"><div class="col"><label for="nome_exercicio" class="form-label">Nome do Exercício</label><input name="nome_exercicio[]" class="form-control" type="text"></div><div class="col"><label for="series" class="form-label">Séries</label><input name="series[]" class="form-control" type="number"></div><div class="col"><label for="repeticoes" class="form-label">Repetições</label><input name="repeticoes[]" class="form-control" type="number"></div></div></div>');
+      });
+    });
+  </script>
+
+  
+  
+  
 
   <!-- Optional JavaScript; choose one of the two! -->
 
