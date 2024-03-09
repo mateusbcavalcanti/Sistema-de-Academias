@@ -5,7 +5,7 @@ from datetime import datetime
 class Aluno(models.Model):
     cpf = models.TextField(primary_key=True, default=0)
     nome = models.CharField(max_length=255)
-    data_nasc = models.DateField()
+    data_nasc = models.DateField(null=True)
     telefone = models.IntegerField()
     pacote = models.CharField(max_length=14)
 

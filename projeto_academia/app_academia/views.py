@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Treino
 from .models import Aluno
 from .models import Maquina
@@ -82,3 +82,8 @@ def listaAluno(request):
 
 def cadAluno(request):
     return render(request, 'telaRecepcionista/cadAluno.html')
+
+def delete(request, cpf):
+    aluno = Aluno.objects.get(cpf=cpf)
+    aluno.delete()
+    return redirect("")

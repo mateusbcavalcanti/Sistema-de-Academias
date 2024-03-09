@@ -5,26 +5,10 @@
     <meta charset="utf-8">
     <title>Lista de Alunos</title>
 
-    <style>
-        .container {
-            display: flex;
-            margin-top: 50px;
-            flex-direction: row;
-            justify-content: center;
-            gap: 20px;
-
-        }
-
-        .option {
-            background-color: rgb(168, 203, 242);
-            border-radius: 10px;
-        }
-    </style>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootsthap@5.0.2/dist/css/bootsthap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
+
 </head>
 
 <body>
@@ -35,13 +19,14 @@
     </nav>
 
     <div class="container">
-        <table>
+        <table id="alunoTable" class="table table-striped">
             <tr>
                 <th>CPF</th>
                 <th>nome</th>
                 <th>data</th>
                 <th>telefone</th>
                 <th>pacote</th>
+                <th>Operations</th>
             </tr>
             {% for aluno in alunos%}
             <tr>
@@ -50,6 +35,9 @@
                 <td>{{aluno.data_nasc}}</td>
                 <td>{{aluno.telefone}}</td>
                 <td>{{aluno.pacote}}</td>
+                <td>
+                    <a class="btn btn-danger" href="/delete/{{aluno.cpf}}">Deletar</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
