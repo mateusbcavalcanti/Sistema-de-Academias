@@ -1,0 +1,32 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Grupo Muscular</th>
+            <th>Marca</th>
+            <th>Data de Compra</th>
+            <th>Última Manutenção</th>
+            <th>Fornecedor</th>
+            <th>Prazo de Manutenção</th>
+            <th>Próxima Manutenção</th>
+            <th>Responsável</th>
+            <th>Garantia</th>
+            <!-- <th>Unidade</th> -->
+        </tr>
+        {% for maquina in maquinas %}
+        <tr>
+            <td>{{maquina.nome}}</td>
+            <td>{{maquina.marca}}</td>
+            <td>{{maquina.grupo_muscular}}</td>
+            <td>{{maquina.data_compra}}</td>
+            <td>{{maquina.ult_manutencao}}</td>
+            <td>{{maquina.fornecedor}}</td>
+            <td>{{maquina.prazo_manutencao}}</td>
+            <td>{{maquina.prox_manutencao}}</td>
+            <td>{{maquina.responsavel}}</td>
+            <td>{{maquina.garantia}}</td>
+            <!-- <td>{{maquina.unidade}}</td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</div>

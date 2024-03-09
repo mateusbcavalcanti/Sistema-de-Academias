@@ -24,6 +24,21 @@ class Exercicio(models.Model):
     series = models.IntegerField()
     repeticoes = models.IntegerField()
 
+class Funcionario(models.Model):
+    cpf = models.TextField(max_length=255, primary_key=True)
+    nome = models.TextField(max_length=255)
+    telefone = models.IntegerField()
+    endereco = models.TextField(max_length=255)
+    data_admissao = models.DateField()
+    salario = models.IntegerField()
+
+class Unidade(models.Model):
+    nome = models.TextField(max_length=255, primary_key=True)
+    endereco = models.TextField(max_length=255)
+    aulas = models.TextField(max_length=255)
+    hora_funcionamento = models.DateTimeField()
+    #gerente = models.ForeignKey()
+
 class Maquina(models.Model):
     nome = models.TextField(max_length=255 ,primary_key=True)
     grupo_muscular = models.TextField(max_length=255)    
@@ -34,4 +49,5 @@ class Maquina(models.Model):
     prazo_manutencao = models.DateField()
     prox_manutencao = models.DateField()
     responsavel = models.TextField(max_length=225)
-    # unidade = models.ForeignKey()
+    #unidade = models.ForeignKey(Unidade, on_delete=models.CASCADE)
+
