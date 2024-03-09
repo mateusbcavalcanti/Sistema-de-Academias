@@ -12,6 +12,7 @@
   </head>
   <body>
         <form action="{% url 'listagem_maquinas' %}" method="post">
+          {% csrf_token %}
             <div style="text-align: center;" class="container">
                 <h1>Insira os dados da máquina</h1>
                 Nome <input name="nome" class="form-control-sm" type="text">
@@ -23,8 +24,8 @@
                 Prazo de Manutenção <input name="prazo_manutencao" class="form-control-sm" type="text">
                 Próxima Manutenção <input name="prox_manutencao" class="form-control-sm" type="date">
                 Responsável <input name="responsavel" class="form-control-sm" type="text">
-                Garantia <input class="form-control-sm" type="date">
-                Unidade <input class="form-control-sm" type="text">
+                Garantia <input name="garantia" class="form-control-sm" type="date">
+                <!-- Unidade <input name="unidade" class="form-control-sm" type="text"> -->
                 <button class="form-control-sm">Enviar</button>
             </div>
         </form>
