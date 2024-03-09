@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Treino
 from .models import Aluno
 
@@ -31,6 +31,7 @@ def alunos(request):
     alunos = {
         'alunos': Aluno.objects.all()
     }
+
     # retornando os dados para a página de listagem dos alunos
     return render(request, 'telaRecepcionista/listaAluno.html', alunos)
 
@@ -50,14 +51,24 @@ def telaProf(request):
 def telaGerente(request):
     return render(request, 'telaGerente/telaGerente.html')
 
+
 def cadMaquinario(request):
     return render(request, 'telaGerente/cadMaquinario.html')
+
 
 def telaRecepcionista(request):
     return render(request, 'telaRecepcionista/telaRecepcionista.html')
 
+
 def listaAluno(request):
     return render(request, 'telaRecepcionista/listaAluno.html')
 
+
 def cadAluno(request):
     return render(request, 'telaRecepcionista/cadAluno.html')
+
+
+def delete(request, cpf):
+    aluno = Aluno.objects.get(cpf=cpf)
+    aluno.delete()
+    return redirect("")

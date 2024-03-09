@@ -12,5 +12,6 @@ urlpatterns = [
     path('cadMaquinario/', views.cadMaquinario, name='cadMaquinario'),
     path('telaRecepcionista/', views.telaRecepcionista, name='telaRecepcionista'),
     path('cadAluno/', views.cadAluno, name='cadAluno'),
-    path('listaAluno/', views.alunos, name='listagem_alunos')
+    path('listaAluno/', views.alunos, name='listagem_alunos'),
+    path('delete/<str:cpf>', views.delete, name='delete')
 ]
