@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Treino
 from .models import Aluno
@@ -5,9 +6,10 @@ from .models import Maquina
 
 
 def treinos(request):
+
     if request.method == 'POST':
         novo_treino = Treino()
-        novo_treino.aluno = request.POST.get('aluno')
+        novo_treino.aluno_id = request.POST.get('aluno')
         novo_treino.treino = request.POST.get('treino')
         novo_treino.save()
 
@@ -78,7 +80,10 @@ def telaRecepcionista(request):
     return render(request, 'telaRecepcionista/telaRecepcionista.html')
 
 def listaAluno(request):
-    return render(request, 'telaRecepcionista/listaAluno.html')
+    alunos = {
+        'alunos': Aluno.objects.all()
+    }
+    return render(request, 'telaRecepcionista/listaAluno.html', alunos)
 
 def cadAluno(request):
     return render(request, 'telaRecepcionista/cadAluno.html')
@@ -86,4 +91,23 @@ def cadAluno(request):
 def delete(request, cpf):
     aluno = Aluno.objects.get(cpf=cpf)
     aluno.delete()
-    return redirect("")
+    alunos = {
+        'alunos': Aluno.objects.all()
+    }
+    return render(request, 'telaRecepcionista/listaAluno.html', alunos)
+
+
+def homeAluno(request):
+    if request.method == 'POST':
+        matricula = request.POST.get('matricula')  # Obtenha a matrícula do formulário
+        # Verifique se a matrícula corresponde a algum aluno no banco de dados
+        if Aluno.objects.filter(cpf=matricula).exists():
+            # Se a matrícula (CPF) existe no banco de dados, renderize a página 'homeAluno'
+            return render(request, 'telaAluno/homeAluno.html')
+        else:
+            # Se a matrícula (CPF) não existe no banco de dados, exiba uma mensagem de aviso
+            return HttpResponse("Aluno não cadastrado")
+    else:
+        # Se o método HTTP não for POST, retorne um HttpResponse vazio ou renderize uma página de erro
+        return HttpResponse("Método não permitido")
+

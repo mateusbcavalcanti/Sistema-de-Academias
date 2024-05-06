@@ -1,32 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Listagem de Máquinas</title>
+</head>
+<body style="background-color: #f0f8ff;">
+
 <div class="container">
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Grupo Muscular</th>
-            <th>Marca</th>
-            <th>Data de Compra</th>
-            <th>Última Manutenção</th>
-            <th>Fornecedor</th>
-            <th>Prazo de Manutenção</th>
-            <th>Próxima Manutenção</th>
-            <th>Responsável</th>
-            <th>Garantia</th>
-            <!-- <th>Unidade</th> -->
-        </tr>
-        {% for maquina in maquinas %}
-        <tr>
-            <td>{{maquina.nome}}</td>
-            <td>{{maquina.marca}}</td>
-            <td>{{maquina.grupo_muscular}}</td>
-            <td>{{maquina.data_compra}}</td>
-            <td>{{maquina.ult_manutencao}}</td>
-            <td>{{maquina.fornecedor}}</td>
-            <td>{{maquina.prazo_manutencao}}</td>
-            <td>{{maquina.prox_manutencao}}</td>
-            <td>{{maquina.responsavel}}</td>
-            <td>{{maquina.garantia}}</td>
-            <!-- <td>{{maquina.unidade}}</td> -->
-        </tr>
-        {% endfor %}
+    <nav style="background-color: lightsteelblue !important;" class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Listagem de Máquinas</span>
+        </div>
+    </nav>
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Grupo Muscular</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Data de Compra</th>
+                <th scope="col">Última Manutenção</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Prazo de Manutenção</th>
+                <th scope="col">Próxima Manutenção</th>
+                <th scope="col">Responsável</th>
+                <th scope="col">Garantia</th>
+                <!-- <th scope="col">Unidade</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for maquina in maquinas %}
+            <tr>
+                <td>{{ maquina.nome }}</td>
+                <td>{{ maquina.grupo_muscular }}</td>
+                <td>{{ maquina.marca }}</td>
+                <td>{{ maquina.data_compra }}</td>
+                <td>{{ maquina.ult_manutencao }}</td>
+                <td>{{ maquina.fornecedor }}</td>
+                <td>{{ maquina.prazo_manutencao }}</td>
+                <td>{{ maquina.prox_manutencao }}</td>
+                <td>{{ maquina.responsavel }}</td>
+                <td>{{ maquina.garantia }}</td>
+                <!-- <td>{{ maquina.unidade }}</td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

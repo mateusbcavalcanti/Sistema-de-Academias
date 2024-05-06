@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Menu Aluno</title>
+    <title>Login do Aluno</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
         .container {
@@ -11,51 +15,59 @@
             margin-top: 50px;
             flex-direction: column;
             justify-content: center;
-            gap: 10px;
+            gap: 20px;
             align-items: center;
-
         }
 
         h1 {
             text-align: center;
-
+            font-size: 30px;
+            color: #007bff; /* Azul */
         }
 
         .controleAluno {
             width: 300px;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #007bff; /* Azul */
+            color: #007bff; /* Azul */
         }
 
         .option {
-            width: 70px;
-            border-radius: 10px;
+            width: 100px;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff; /* Azul */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #0056b3; /* Tom mais escuro de azul */
         }
     </style>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav style="background-color: lightsteelblue !important;" class="navbar navbar-light bg-light">
+    <nav style="background-color: #007bff !important;" class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Menu Aluno</span>
+            <span class="navbar-brand mb-0 h1">Login do Aluno</span>
         </div>
     </nav>
 
-
     <div class="container">
-        <h1 style="font-size: 30px">Insira seu CPF</h1>
-        <input type="text" name="matricula" class="controleAluno">
-        <button name="button" class="option">Login</button>
-
-
+        <h1>Insira seu CPF</h1>
+        <form action="{% url 'homeAluno' %}" method="post"> <!-- Mudança aqui: método POST -->
+            {% csrf_token %} <!-- Adicione isso para proteção contra CSRF -->
+            <input type="text" name="matricula" class="controleAluno" placeholder="CPF">
+            <button type="submit" class="option">Login</button> <!-- Mudança aqui: tipo de botão submit -->
+        </form>
     </div>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="game.js" charset="utf-8"></script>
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
